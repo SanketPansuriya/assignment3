@@ -1,0 +1,25 @@
+<div id="<%= dom_id auther %>">
+  <p>
+    <strong>Name:</strong>
+    <%= auther.name %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= auther.address %>
+  </p>
+
+  <p>
+    <strong>Profile picture:</strong>
+    <% if auther.profile_picture.attached? %>
+      <%= image_tag auther.profile_picture.variant(:thumb) %>
+      <%= button_to 'Remove', picture_destroy_picture_path(id: auther.id, picture_id: auther.profile_picture.id, class_name: auther.class), method: :delete, 
+                                  form: { data: {
+                                    turbo_confirm: 'Are you sure?'
+                                  }, style: 'display: inline'
+                                  } 
+      %>
+    <% end %>
+  </p>
+
+</div>

@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<% cache @auther do%> 
+  <%= render @auther %>
+<% end %>
+<div>
+  <%= link_to "Edit this auther", edit_auther_path(@auther) %> |
+  <%= link_to "Back to authers", authers_path %>
+
+  <%= button_to "Destroy this auther", @auther, method: :delete %>
+</div>

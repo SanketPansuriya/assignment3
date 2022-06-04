@@ -1,0 +1,28 @@
+<div id="<%= dom_id book %>">
+  <p>
+    <strong>Name:</strong>
+    <%= book.name %>
+  </p>
+
+  <p>
+    <strong>Cover photos:</strong>
+    <% book.cover_photos.each do |cover_photo| %>
+      <div style="display:block">
+        <%= cover_photo.content_type %>
+        <%= image_tag cover_photo %>
+        <%= button_to 'Remove', picture_destroy_picture_path(id: book.id, picture_id: cover_photo.id, class_name: book.class), method: :delete, 
+                                form: { data: {
+                                  turbo_confirm: 'Are you sure?'
+                                }, style: 'display: inline'
+                                } 
+          %>
+      </div>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Auther:</strong>
+    <%= book.auther_id %>
+  </p>
+
+</div>

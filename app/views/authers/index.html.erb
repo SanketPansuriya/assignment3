@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Authers</h1>
+<hr>
+<div id="authers">
+  <% @authers.each do |auther| %>
+    <% cache auther do%>
+      <%= render auther %>
+    <% end %>
+    <p>
+      <%= link_to "Show this auther", auther %>
+    </p>
+    <hr>
+  <% end %>
+</div>
+
+<%= link_to "New auther", new_auther_path %>
